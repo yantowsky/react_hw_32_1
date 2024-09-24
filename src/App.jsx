@@ -14,15 +14,15 @@ const NotFoundLazy = lazy(() => import('./pages/NotFound.jsx'));
 
 function App() {
     const darkMode = useSelector((state) => state.darkTheme.dark);
-    const theme = createTheme({
-        colorSchemes: {
-            dark: darkMode,
+    const darkTheme = createTheme({
+        palette: {
+            mode: darkMode ? 'dark' : 'light',
         },
     });
 
     return (
         <>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={darkTheme}>
                 <Paper sx={{ height: '100vh', fontFamily: 'Play' }}>
                     <Container
                         sx={{
